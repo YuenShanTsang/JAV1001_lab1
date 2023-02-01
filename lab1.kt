@@ -13,26 +13,33 @@ fun main(){
     print("Please enter a numeric value: ")
     val number = readLine()!!.toFloat()
 
-    print("Please enter the unit of measurement: ")
+    print("Convert from km, mi, cm, in, kg, lb, g, oz, C, F, L and cup.\nPlease select and enter the current unit of measurement: ")
     val measurementUnit = readLine()
 
-    var result: String
+    var conversion: String
     when (measurementUnit) {
-        "km" -> result = "$number$measurementUnit = ${0.62*number}mi"
-        "mi" -> result = "$number$measurementUnit = ${1.61*number}km"
+        "km" -> conversion = "$number$measurementUnit = ${number*0.62}mi"
+        "mi" -> conversion = "$number$measurementUnit = ${number*1.61}km"
 
-        "cm" -> result = "$number$measurementUnit = ${0.39*number}in"
-        "in" -> result = "$number$measurementUnit = ${2.54*number}cm"
+        "cm" -> conversion = "$number$measurementUnit = ${number*0.39}in"
+        "in" -> conversion = "$number$measurementUnit = ${number*2.54}cm"
 
-        "kg" -> result = "$number$measurementUnit = ${2.2*number}lb"
-        "lb" -> result = "$number$measurementUnit = ${0.45*number}kg"
+        "kg" -> conversion = "$number$measurementUnit = ${number*2.2}lb"
+        "lb" -> conversion = "$number$measurementUnit = ${number*0.45}kg"
 
-        "g" -> result = "$number$measurementUnit = ${0.04*number}oz"
-        "oz" -> result = "$number$measurementUnit = ${28.35*number}g"
+        "g" -> conversion = "$number$measurementUnit = ${number*0.04}oz"
+        "oz" -> conversion = "$number$measurementUnit = ${number*28.35}g"
 
-        else -> result = "Unable to convert"
+        "C" -> conversion = "$number$measurementUnit = ${number*(9/5) + 32}F or ${number + 273.15}K"
+
+        "F" -> conversion = "$number$measurementUnit = ${(number-32) * (5/9)}C or ${(number-32) * (5/9) + 273.15}K"
+        
+        "L" -> conversion = "$number$measurementUnit = ${number*4.17}cups"
+        "cup" -> conversion = "$number$measurementUnit = ${number*0.24}L"
+
+        else -> conversion = "Please enter valid unit"
     }
 
-    println(result)
+    println(conversion)
 
 }
