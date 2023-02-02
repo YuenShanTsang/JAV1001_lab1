@@ -4,11 +4,11 @@
 
 /* This program allows the user to convert between different forms of measurement.
 It first collects a numeric value from the user and stores it in a variable.
-Then collects the current unit of measurement and determine the appropriate conversion in either direction
-At last it displays the new result.
+Then it collects the current unit of measurement and determine the appropriate conversion in either direction.
+At last, it displays the new result.
 */
 
-fun main(){
+fun main() {
     //Get a numeric value from user
     print("Please enter a numeric value: ")
     val number = readLine()!!.toFloat()
@@ -44,7 +44,7 @@ fun main(){
         "cup" -> conversion = "$number$measurementUnit = ${number*0.24}L"
 
         //Invalid unit
-        else -> conversion = "Please try again and enter a valid unit"
+        else -> conversion = "Please try again and enter a valid unit."
     }
 
     //Show the new value
